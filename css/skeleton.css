@@ -125,11 +125,7 @@ body {
   line-height: 1.6;
   font-weight: 400;
   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #222;
-  background-image: url('images/moon2.bmp');  background-repeat: no-repeat;  background-attachment: fixed;
-    background-size: cover;
-
-}
+  color: #222;}
 
 
 
@@ -411,13 +407,7 @@ there.
 @media (min-width: 400px) {}
 
 /* Larger than phablet (also point when grid becomes active) */
-@media (min-width: 550px) {
-
-  body {
-    background-image: url('image/moon2wide.bmp');
-  }
-
-}
+@media (min-width: 550px) { }
 
 /* Larger than tablet */
 @media (min-width: 750px) {}
