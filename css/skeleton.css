@@ -426,18 +426,19 @@ there.
   -moz-column-gap:5px;
   column-count:5;
   column-gap:5px;
-  filter: grayscale(100%);
+  
 }
 
 .gallery img {
   width: 100% !important;
   height: auto !important;
   margin-bottom:5px; /* to match column gap */
+  filter: grayscale(100%);
   transition: filter 2s;
 }
 
 .gallery img:hover {
-  filter:none;
+  filter: none;
 }
 
 @media (max-width: 1200px) {
