@@ -1,68 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Compass</title>
+<html>
+  <head>
     <style>
-        body {
-            margin: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
-
-        #compass-container {
-            text-align: center;
-        }
-
-        #compass {
-            width: 200px;
-            height: 200px;
-            border: 2px solid black;
-            border-radius: 50%;
-            position: relative;
-        }
-
-        #arrow {
-            width: 50px; /* Adjust the width as needed */
-            height: auto; /* Maintain aspect ratio */
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform-origin: 50% 100%;
-            transform: translate(-50%, -50%);
-            transition: transform 0.5s;
-        }
+    p {
+      font-family: verdana;
+      font-size: 400px;
+      color: #FFFFFF;
+    }
     </style>
-</head>
-<body>
-    <div id="compass-container">
-        <div id="compass">
-            <img id="arrow" src="images/arrow.png" alt="Arrow">
-        </div>
-    </div>
-
+    <title>Compass</title>
     <script>
-        function updateOrientation(event) {
-            const arrow = document.getElementById('arrow');
-            const { alpha } = event.alpha || {};
-
-            if (alpha !== null || alpha !== undefined) {
-                arrow.style.transform = `translate(-50%, -50%) rotate(${-alpha}deg)`;
-            }
-        }
-
-        function initializeCompass() {
-            if (window.DeviceOrientationEvent) {
-                window.addEventListener('deviceorientation', updateOrientation);
-            } else {
-                alert("Sorry, your device doesn't support device orientation.");
-            }
-        }
-
-        window.onload = initializeCompass;
+    // Get event data
+    function deviceOrientationListener(event) {
+      var alpha    = event.alpha; //z axis rotation [0,360)
+      var beta     = event.beta; //x axis rotation [-180, 180]
+      var gamma    = event.gamma; //y axis rotation [-90, 90]
+      //Check if absolute values have been sent
+      if (typeof event.webkitCompassHeading !== "undefined") {
+        alpha = event.webkitCompassHeading; //iOS non-standard
+        var heading = alpha
+        document.getElementById("heading").innerHTML = heading.toFixed([0]);
+      }
+      else {
+        alert("Your device is reporting relative alpha values, so this compass won't point north :(");
+        var heading = 360 - alpha; //heading [0, 360)
+        document.getElementById("heading").innerHTML = heading.toFixed([0]);
+      }
+      
+      // Change backgroud colour based on heading
+      // Green for North and South, black otherwise
+      if (heading > 359 || heading < 1) { //Allow +- 1 degree
+        document.body.style.backgroundColor = "green";
+        document.getElementById("heading").innerHTML = "N"; // North
+      }
+      else if (heading > 179 && heading < 181){ //Allow +- 1 degree
+        document.body.style.backgroundColor = "green";
+        document.getElementById("heading").innerHTML = "S"; // South
+      } 
+      else { // Otherwise, use near black
+        document.body.style.backgroundColor = "#161616";
+      }
+    }
+    
+    // Check if device can provide absolute orientation data
+    if (window.DeviceOrientationAbsoluteEvent) {
+      window.addEventListener("DeviceOrientationAbsoluteEvent", deviceOrientationListener);
+    } // If not, check if the device sends any orientation data
+    else if(window.DeviceOrientationEvent){
+      window.addEventListener("deviceorientation", deviceOrientationListener);
+    } // Send an alert if the device isn't compatible
+    else {
+      alert("Sorry, try again on a compatible mobile device!");
+    }
     </script>
-</body>
+  </head>
+  <body>
+    <br><br>
+    <p id="heading" style="text-align:center"></p>
+  </body>
 </html>
