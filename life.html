@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background-color: transparent;
+    }
+
+    canvas {
+      display: block;
+    }
+  </style>
+  <title>Conway's Game of Life</title>
+</head>
+<body style="background-color: black;">
+
+  <canvas id="gameCanvas"></canvas>
+
+  <script>
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+
+    const resolution = 10;
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const cols = Math.floor(canvas.width / resolution);
+    const rows = Math.floor(canvas.height / resolution);
+
+    function createGrid() {
+      const grid = new Array(cols).fill(null)
+        .map(() => new Array(rows).fill(0));
+      return grid;
+    }
+
+    function drawGrid(grid) {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      for (let i = 0; i < cols; i++) {
+        for (let j = 0; j < rows; j++) {
+          const x = i * resolution;
+          const y = j * resolution;
+
+          if (grid[i][j] === 1) {
+            ctx.fillStyle = 'white';
+            ctx.fillRect(x, y, resolution, resolution);
+          }
+        }
+      }
+    }
+
+    function updateGrid(grid) {
+      const nextGen = createGrid();
+
+      for (let i = 0; i < cols; i++) {
+        for (let j = 0; j < rows; j++) {
+          const neighbors = countNeighbors(grid, i, j);
+
+          if (grid[i][j] === 1 && (neighbors < 2 || neighbors > 3)) {
+            nextGen[i][j] = 0;
+          } else if (grid[i][j] === 0 && neighbors === 3) {
+            nextGen[i][j] = 1;
+          } else {
+            nextGen[i][j] = grid[i][j];
+          }
+        }
+      }
+
+      return nextGen;
+    }
+
+    function countNeighbors(grid, x, y) {
+      let sum = 0;
+      for (let i = -1; i < 2; i++) {
+        for (let j = -1; j < 2; j++) {
+          const col = (x + i + cols) % cols;
+          const row = (y + j + rows) % rows;
+          sum += grid[col][row];
+        }
+      }
+      sum -= grid[x][y];
+      return sum;
+    }
+
+    let gameGrid = createGrid();
+
+    function animate() {
+      drawGrid(gameGrid);
+      gameGrid = updateGrid(gameGrid);
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  </script>
+</body>
+</html>
