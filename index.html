@@ -1,118 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-  <!-- Basic Page Needs
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <meta charset="utf-8">
-  <title>Liam Ward</title>
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <!-- Mobile Specific Metas
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- FONT
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
-
-  <!-- CSS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/skeleton.css">
-
-  <!-- Favicon
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="icon" type="image/png" href="images/favicon.png">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Liam Ward – Aerospace Engineer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg: #ffffff;
+      --text: #000000;
+      --blue: #a3cbe3; /* powder blue */
+      --panel: #e8eef2;
+      --accent: #d10000;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-        margin: 0;
-        padding: 0;
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Roboto Mono', monospace;
+      font-size: 16px;
+      line-height: 1.7;
     }
 
-    .footer {
-        background-color: #3498db; /* Initial color */
-        animation: colorFade 16s infinite alternate;
-        padding: 20px; /* Adjust as needed */
-        text-align: center;
-        color: white; /* Text color for better visibility */
+    header {
+      background: var(--blue);
+      padding: 60px 20px 40px;
+      border-bottom: 4px solid var(--text);
+      text-align: center;
     }
 
-    @keyframes colorFade {
-        0% {
-            background-color: rgb(255, 223, 120); /* Color 1 */
-        }
-        25% {
-            background-color: rgb(86, 213, 86); /* Color 2 */
-        }
-        50% {
-            background-color: rgb(85, 181, 255); /* Color 3 */
-        }
-        75% {
-            background-color: rgb(255, 162, 162); /* Color 4 */
-        }
-        100% {
-            background-color: rgb(255, 223, 120); /* Back to Color 1 */
-        }
+    h1 {
+      font-family: 'Raleway', sans-serif;
+      font-size: 3rem;
+      color: var(--text);
+      text-transform: uppercase;
+      letter-spacing: 2px;
     }
 
-</style>
+    h2 {
+      font-size: 1.1rem;
+      margin-top: 10px;
+      color: var(--text);
+    }
 
+    nav {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      color: var(--text);
+      border: 2px solid var(--text);
+      padding: 6px 12px;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: var(--text);
+      color: var(--bg);
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    section {
+      margin-bottom: 60px;
+      padding: 30px;
+      background-color: var(--panel);
+      border-left: 6px solid var(--blue);
+    }
+
+    h3 {
+      font-size: 1.4rem;
+      font-family: 'Raleway', sans-serif;
+      margin-bottom: 15px;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    p {
+      margin-bottom: 16px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 0.85rem;
+      color: #555;
+      border-top: 2px solid #ccc;
+    }
+
+    @media (max-width: 768px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
 </head>
-
 <body>
-  
-  <!-- Primary Page Layout
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <div style="background-image: url('images/moon.jpg'); background-position: top; background-size: cover;  background-repeat: no-repeat;
-  background-position: center;">
-  <div class="container" style=" padding: 5vw; border-right: 15vw double rgba(255, 255, 255, 1);">
-    <div class="row">
-      <div class="one-half column" style="margin-top: 8%">
-        <h1 style="font-family: 'Raleway', serif; font-weight: 800; line-height: 80%; color: white; text-shadow: 0 0 32px black;">LIAM WARD</h1>
-      </div>
-    </div>
-    <div class="row">
-      <div class="one-half column" style="margin-top: 5%; text-shadow: 0 0 32px black;">
-        <h2 style="font-family: 'Playfair Display', serif; font-weight: 900; line-height: 70%; color: white;">i'm an engineer.</h2>
-        <h2 style="font-family: 'Playfair Display', serif; font-weight: 900; line-height: 70%; color: rgb(255, 223, 120);">here's my <a href="/docs/resume.pdf">engineering resume</a>.</h2>
-        <h2 style="font-family: 'Playfair Display', serif; font-weight: 900; line-height: 70%; color: rgb(86, 213, 86);">here's my <a href="/docs/resume.pdf">engineering portfolio</a>.</h2>
-      </div>
-    </div>
-    <div class="row">
-      <div class="one-half column" style="margin-top: 5%; text-shadow: 0 0 32px black;">
-        <h2 style="font-family: 'Playfair Display', serif; font-weight: 900; line-height: 70%; color: white; ">i'm a musician.</h2>
-        <h2 style="font-family: 'Playfair Display', serif; font-weight: 900; line-height: 70%; color: rgb(85, 181, 255);">here's my <a href="/docs/music-resume.pdf">music resume</a>.</h2>
-      </div>
-    </div>
-    <div class="row">
-      <div class="one-half column" style="margin-top: 5%; text-shadow: 0 0 32px black;">
-        <h2 style="font-family: 'Playfair Display', serif; font-weight: 900; line-height: 70%; color: white">i'm an explorer.</h2>
-        <h2 style="font-family: 'Playfair Display', serif; font-weight: 900; line-height: 70%; color: rgb(255, 162, 162)">here are some photos of <a href="/gallery.html">life through my eyes</a>.</h2>
+
+  <header>
+    <h1>Liam Ward</h1>
+    <h2>Aerospace · Simulation · Materials · Systems</h2>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#interests">Interests</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <section id="about">
+      <h3>About Me</h3>
+      <p>I currently work as a Data Analytics / Modeling and Simulation Engineer at Leidos Dynetics. My role centers on the integration of physical models, simulation tools, and data analysis to support aerospace systems development.</p>
+      <p>I earned an M.S. in Aeronautics & Astronautics from Purdue University, where I studied critical joining technologies for hypersonic thermal protection systems.</p>
+    </section>
+
+    <section id="work">
+      <h3>Engineering & Research</h3>
+      <p>My interests lie at the intersection of fundamental science and applied engineering—particularly in the domains of high-temperature materials, digital engineering, and systems-level modeling for extreme environments.</p>
+    </section>
+
+    <section id="interests">
+      <h3>Other Interests</h3>
+      <p>I’m inspired by the past and future of spaceflight, from Saturn V to modern reusable systems. Outside the lab, I pursue photography and music—fields that reflect the same balance of structure and improvisation I value in engineering.</p>
+    </section>
+
+    <section id="contact">
+      <div class="grid">
+        <div>
+          <h3>Contact</h3>
+          <p>Email: <a href="mailto:liamward35@icloud.com">liamward35@icloud.com</a></p>
+          <p>LinkedIn: <a href="https://linkedin.com/in/liam-ward" target="_blank">linkedin.com/in/liamward</a></p>
         </div>
-    </div>
-  </div>
-  </div>
-   <div class="container" style="padding: 5vw; background-color:#0a551d; animation: colorFade 16s infinite alternate; border-right: 15vw double rgba(255, 255, 255, 1);">
-    <div class="row">
-      <div class="one-half column" style="margin-top: 5%">
-        <p style="font-family: 'Raleway', serif; font-weight: 900; line-height: 80%; color: white"><span>&copy</span>2023 - i made this website</p>
+        <div>
+          <h3>Links</h3>
+          <p><a href="/docs/resume.pdf" target="_blank">Engineering Resume</a></p>
+          <p><a href="/docs/music-resume.pdf" target="_blank">Music Resume</a></p>
+          <p><a href="/life.html">Photography Gallery</a></p>
+        </div>
       </div>
-    </div>
+    </section>
   </div>
-<!-- End Document
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+  <footer>
+    &copy; 2025 Liam Ward — Built on Earth.
+  </footer>
+
 </body>
 </html>
