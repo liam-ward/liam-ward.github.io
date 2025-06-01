@@ -1,24 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Liam Ward</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@700&family=Raleway:wght@300;600;900&display=swap" rel="stylesheet">
-
-  <!-- CSS Reset & Skeleton -->
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/skeleton.css">
-
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Liam Ward – Aerospace Engineer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    body {
+    :root {
+      --bg: #ffffff;
+      --text: #000000;
+      --blue: #a3cbe3; /* powder blue */
+      --panel: #e8eef2;
+      --accent: #d10000;
+    }
+
+    * {
       margin: 0;
       padding: 0;
-      background-color: #000;
-      color: white;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Roboto Mono', monospace;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    header {
+      background: var(--blue);
+      padding: 60px 20px 40px;
+      border-bottom: 4px solid var(--text);
+      text-align: center;
+    }
+
+    h1 {
       font-family: 'Raleway', sans-serif;
+      font-size: 3rem;
+      color: var(--text);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    h2 {
+      font-size: 1.1rem;
+      margin-top: 10px;
+      color: var(--text);
+    }
+
+    nav {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      color: var(--text);
+      border: 2px solid var(--text);
+      padding: 6px 12px;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: var(--text);
+      color: var(--bg);
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    section {
+      margin-bottom: 60px;
+      padding: 30px;
+      background-color: var(--panel);
+      border-left: 6px solid var(--blue);
+    }
+
+    h3 {
+      font-size: 1.4rem;
+      font-family: 'Raleway', sans-serif;
+      margin-bottom: 15px;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    p {
+      margin-bottom: 16px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover {
+      text-decoration: underline;
     }
 
     .gallery {
@@ -43,52 +137,29 @@
       transform: scale(1.03);
     }
 
-    .footer {
-      background-color: #111;
-      animation: nasaFade 20s infinite alternate;
-      padding: 30px 20px;
-      text-align: center;
-      color: white;
-      font-weight: 600;
-      font-family: 'Playfair Display SC', serif;
-      letter-spacing: 1px;
-    }
-
-    @keyframes nasaFade {
-      0% { background-color: #1f1f1f; }
-      25% { background-color: #87bfe5; } /* powder blue */
-      50% { background-color: #fff; color: #000; }
-      75% { background-color: #ccc; color: #111; }
-      100% { background-color: #1f1f1f; color: #fff; }
-    }
-
-    .container {
-      background-color: black;
-      border-top: 2px solid #87bfe5;
-      padding: 5vw 2vw;
-    }
-
-    p {
-      font-family: 'Raleway', sans-serif;
-      font-weight: 900;
-      line-height: 1.2;
-      font-size: 1rem;
-      color: white;
-    }
-
     footer {
       text-align: center;
       padding: 40px 20px;
       font-size: 0.85rem;
-      color: white;
+      color: #555;
       border-top: 2px solid #ccc;
+    }
+
+    @media (max-width: 768px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 2.2rem;
+      }
     }
   </style>
 </head>
-
 <body>
 
-  <div class="gallery">
+  
+    <div class="gallery">
     <img src="galleryimages/001.jpeg" alt="">
     <img src="galleryimages/002.jpeg" alt="">
     <img src="galleryimages/003.jpeg" alt="">

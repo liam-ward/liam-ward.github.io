@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Liam Ward</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@700&family=Raleway:wght@300;600;900&display=swap" rel="stylesheet">
+
+  <!-- CSS Reset & Skeleton -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: white;
+      font-family: 'Raleway', sans-serif;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 12px;
+      padding: 2vw;
+      background-color: #000;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: auto;
+      border: 2px solid #87bfe5; /* Powder blue border */
+      background-color: white;
+      padding: 4px;
+      box-shadow: 0 0 8px rgba(135, 191, 229, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.03);
+    }
+
+    .footer {
+      background-color: #111;
+      animation: nasaFade 20s infinite alternate;
+      padding: 30px 20px;
+      text-align: center;
+      color: white;
+      font-weight: 600;
+      font-family: 'Playfair Display SC', serif;
+      letter-spacing: 1px;
+    }
+
+    @keyframes nasaFade {
+      0% { background-color: #1f1f1f; }
+      25% { background-color: #87bfe5; } /* powder blue */
+      50% { background-color: #fff; color: #000; }
+      75% { background-color: #ccc; color: #111; }
+      100% { background-color: #1f1f1f; color: #fff; }
+    }
+
+    .container {
+      background-color: black;
+      border-top: 2px solid #87bfe5;
+      padding: 5vw 2vw;
+    }
+
+    p {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 900;
+      line-height: 1.2;
+      font-size: 1rem;
+      color: white;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 0.85rem;
+      color: white;
+      border-top: 2px solid #ccc;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="gallery">
+    <img src="galleryimages/001.jpeg" alt="">
+    <img src="galleryimages/002.jpeg" alt="">
+    <img src="galleryimages/003.jpeg" alt="">
+    <img src="galleryimages/004.jpeg" alt="">
+    <img src="galleryimages/005.jpg" alt="">
+    <img src="galleryimages/006.jpg" alt="">
+    <img src="galleryimages/007.jpg" alt="">
+    <img src="galleryimages/008.jpeg" alt="">
+    <img src="galleryimages/009.jpeg" alt="">
+    <img src="galleryimages/010.jpeg" alt="">
+    <img src="galleryimages/011.jpeg" alt="">
+    <img src="galleryimages/012.jpg" alt="">
+    <img src="galleryimages/013.jpeg" alt="">
+    <img src="galleryimages/014.jpeg" alt="">
+    <img src="galleryimages/015.jpeg" alt="">
+    <img src="galleryimages/016.jpeg" alt="">
+    <img src="galleryimages/017.jpeg" alt="">
+  </div>
+
+  <footer>
+    &copy; 2025 Liam Ward — Built on Earth.
+  </footer>
+
+</body>
+</html>
