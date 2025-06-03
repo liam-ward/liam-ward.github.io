@@ -85,10 +85,11 @@
     display: inline-block; /* Important for column layout */
     width: 100%;
     margin-bottom: 12px;   /* vertical gap between images */
-    overflow: hidden;
-    border: 2px solid #87bfe5;
-    background-color: white;
-    padding: 4px;
+    /* overflow: hidden; */
+    border: 0px solid #87bfe5;
+    border-radius: 20px;
+    /* background-color: #87bfe5; */
+    padding: 0px;
     box-shadow: 0 0 8px rgba(135, 191, 229, 0.3);
     cursor: pointer;
     transition: transform 0.3s ease;
@@ -98,6 +99,8 @@
     display: block;
     width: 100%;
     height: auto;
+    border-radius: 20px;
+    box-shadow: 0 0 8px rgba(135, 191, 229, 0.3);
     transition: filter 0.5s ease, transform 0.3s ease;
     animation: hueRotate 8s linear infinite;
     filter: brightness(1) saturate(1.2);
