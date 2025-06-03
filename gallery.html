@@ -1,193 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Liam Ward – Aerospace Engineer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-  
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
-  
-  <style>
-    :root {
-      --bg: #ffffff;
-      --text: #000000;
-      --blue: #a3cbe3; /* powder blue */
-      --panel: #e8eef2;
-      --accent: #d10000;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Gallery – Liam Ward</title>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0e111b;
+    --text: #d0d0d0;
+    --blue: #73a3d3;
+    --panel: #1a1e2a;
+    --accent: #fc3c3c;
+  }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-    body {
-      background-color: var(--bg);
-      color: var(--text);
-      font-family: 'Roboto Mono', monospace;
-      font-size: 16px;
-      line-height: 1.7;
-    }
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Roboto Mono', monospace;
+    font-size: 16px;
+    line-height: 1.7;
+    position: relative;
+    overflow-x: hidden;
+  }
 
-    header {
-      background: var(--blue);
-      padding: 60px 20px 40px;
-      border-bottom: 4px solid var(--text);
-      text-align: center;
-    }
+  .container {
+    max-width: 960px;
+    margin: 60px auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+  }
 
-    h1 {
-      font-family: 'Raleway', sans-serif;
-      font-size: 3rem;
-      color: var(--text);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-    }
+  h1 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--accent);
+  }
 
-    h2 {
-      font-size: 1.1rem;
-      margin-top: 10px;
-      color: var(--text);
-    }
+  section {
+    background-color: var(--panel);
+    padding: 30px;
+    margin-bottom: 60px;
+    border-left: 6px solid var(--blue);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  }
 
-    nav {
-      margin-top: 30px;
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      flex-wrap: wrap;
-    }
+  footer {
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 0.85rem;
+    color: #888;
+    border-top: 2px solid #2a2a2a;
+  }
 
-    nav a {
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      color: var(--text);
-      border: 2px solid var(--text);
-      padding: 6px 12px;
-      transition: all 0.3s ease;
-    }
+  a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: bold;
+  }
 
-    nav a:hover {
-      background-color: var(--text);
-      color: var(--bg);
-    }
+  a:hover {
+    text-decoration: underline;
+  }
 
-    .container {
-      max-width: 960px;
-      margin: 60px auto;
-      padding: 0 20px;
-    }
+  /* Gallery container with masonry columns */
+  .gallery {
+    column-count: 3;       /* Number of columns */
+    column-gap: 12px;      /* Gap between columns */
+    max-width: 960px;
+    margin: 0 auto 60px;
+    padding: 2vw 0;
+  }
 
-    section {
-      margin-bottom: 60px;
-      padding: 30px;
-      background-color: var(--panel);
-      border-left: 6px solid var(--blue);
-    }
+  /* Each image wrapper flows inside the columns */
+  .image-wrap {
+    display: inline-block; /* Important for column layout */
+    width: 100%;
+    margin-bottom: 12px;   /* vertical gap between images */
+    overflow: hidden;
+    border: 2px solid #87bfe5;
+    background-color: white;
+    padding: 4px;
+    box-shadow: 0 0 8px rgba(135, 191, 229, 0.3);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
 
-    h3 {
-      font-size: 1.4rem;
-      font-family: 'Raleway', sans-serif;
-      margin-bottom: 15px;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
+  .image-wrap img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: filter 0.5s ease, transform 0.3s ease;
+    animation: hueRotate 8s linear infinite;
+    filter: brightness(1) saturate(1.2);
+  }
 
-    p {
-      margin-bottom: 16px;
-    }
+  .image-wrap:hover img {
+    animation: none;
+    filter: none;
+    transform: scale(1.03);
+  }
 
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
+  @keyframes hueRotate {
+    0% {
+      filter: brightness(1) saturate(1.2) hue-rotate(0deg);
     }
-
-    a {
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: bold;
+    100% {
+      filter: brightness(1) saturate(1.2) hue-rotate(360deg);
     }
+  }
 
-    a:hover {
-      text-decoration: underline;
-    }
-
+  /* Responsive: fewer columns on smaller screens */
+  @media (max-width: 900px) {
     .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 12px;
-      padding: 2vw;
-      background-color: #000;
+      column-count: 2;
     }
-
-    .gallery img {
-      width: 100%;
-      height: auto;
-      border: 2px solid #87bfe5; /* Powder blue border */
-      background-color: white;
-      padding: 4px;
-      box-shadow: 0 0 8px rgba(135, 191, 229, 0.3);
-      transition: transform 0.3s ease;
+  }
+  @media (max-width: 600px) {
+    .gallery {
+      column-count: 1;
     }
-
-    .gallery img:hover {
-      transform: scale(1.03);
-    }
-
-    footer {
-      text-align: center;
-      padding: 40px 20px;
-      font-size: 0.85rem;
-      color: #555;
-      border-top: 2px solid #ccc;
-    }
-
-    @media (max-width: 768px) {
-      .grid {
-        grid-template-columns: 1fr;
-      }
-
-      h1 {
-        font-size: 2.2rem;
-      }
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
 
-  
-    <div class="gallery">
-    <img src="galleryimages/001.jpeg" alt="">
-    <img src="galleryimages/002.jpeg" alt="">
-    <img src="galleryimages/003.jpeg" alt="">
-    <img src="galleryimages/004.jpeg" alt="">
-    <img src="galleryimages/005.jpg" alt="">
-    <img src="galleryimages/006.jpg" alt="">
-    <img src="galleryimages/007.jpg" alt="">
-    <img src="galleryimages/008.jpeg" alt="">
-    <img src="galleryimages/009.jpeg" alt="">
-    <img src="galleryimages/010.jpeg" alt="">
-    <img src="galleryimages/011.jpeg" alt="">
-    <img src="galleryimages/012.jpg" alt="">
-    <img src="galleryimages/013.jpeg" alt="">
-    <img src="galleryimages/014.jpeg" alt="">
-    <img src="galleryimages/015.jpeg" alt="">
-    <img src="galleryimages/016.jpeg" alt="">
-    <img src="galleryimages/017.jpeg" alt="">
-  </div>
+<div class="gallery">
+  <div class="image-wrap"><img src="galleryimages/001.jpeg" alt="" /></div>
+  <div class="image-wrap"><img src="galleryimages/002.jpeg" alt="" /></div>
+  <div class="image-wrap"><img src="galleryimages/003.jpeg" alt="" /></div>
+  <div class="image-wrap"><img src="galleryimages/004.jpeg" alt="" /></div>
+  <div class="image-wrap"><img src="galleryimages/005.jpg" alt="" /></div>
+  <div class="image-wrap"><img src="galleryimages/006.jpg" alt="" /></div>
+  <div class="image-wrap"><img src="galleryimages/007.jpg" alt="" /></div>
+  <div class="image-wrap"><img src="galleryimages/008.jpeg" alt="" /></div>
+  <div class="image-wrap"><img src="galleryimages/009.jpeg" alt="" /></div>
+  <div class="image-wrap"><img src="galleryimages/010.jpeg" alt="" /></div>
+  <div class="image-wrap"><img src="galleryimages/011.jpeg" alt="" /></div>
+  <div class="image-wrap"><img src="galleryimages/012.jpg" alt="" /></div>
+  <div class="image-wrap"><img src="galleryimages/013.jpeg" alt="" /></div>
+  <div class="image-wrap"><img src="galleryimages/014.jpeg" alt="" /></div>
+  <div class="image-wrap"><img src="galleryimages/015.jpeg" alt="" /></div>
+  <div class="image-wrap"><img src="galleryimages/016.jpeg" alt="" /></div>
+  <div class="image-wrap"><img src="galleryimages/017.jpeg" alt="" /></div>
+</div>
 
-  <footer>
-    &copy; 2025 Liam Ward — Built on Earth.
-  </footer>
+<footer>
+  &copy; 2025 Liam Ward — Built on Earth.
+</footer>
 
 </body>
 </html>
