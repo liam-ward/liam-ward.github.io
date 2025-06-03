@@ -5,19 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Liam Ward – Aerospace Engineer</title>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-  
+
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
-  
+
   <style>
     :root {
-      --bg: #ffffff;
-      --text: #000000;
-      --blue: #a3cbe3; /* powder blue */
-      --panel: #e8eef2;
-      --accent: #d10000;
+      --bg: #0e111b;
+      --text: #d0d0d0;
+      --blue: #73a3d3;
+      --panel: #1a1e2a;
+      --accent: #fc3c3c;
     }
 
     * {
@@ -32,13 +32,30 @@
       font-family: 'Roboto Mono', monospace;
       font-size: 16px;
       line-height: 1.7;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .rainbow-glow {
+      position: absolute;
+      top: -200px;
+      left: -200px;
+      width: 600px;
+      height: 600px;
+      background: conic-gradient(from 180deg at 50% 50%, red, orange, yellow, green, cyan, blue, violet, red);
+      filter: blur(100px);
+      opacity: 0.25;
+      z-index: 0;
+      pointer-events: none;
     }
 
     header {
-      background: var(--blue);
+      background: var(--panel);
       padding: 60px 20px 40px;
-      border-bottom: 4px solid var(--text);
+      border-bottom: 4px solid var(--accent);
       text-align: center;
+      position: relative;
+      z-index: 1;
     }
 
     h1 {
@@ -52,7 +69,7 @@
     h2 {
       font-size: 1.1rem;
       margin-top: 10px;
-      color: var(--text);
+      color: #bbbbbb;
     }
 
     nav {
@@ -69,13 +86,14 @@
       font-size: 0.85rem;
       text-transform: uppercase;
       color: var(--text);
-      border: 2px solid var(--text);
+      border: 2px solid var(--accent);
       padding: 6px 12px;
+      border-radius: 4px;
       transition: all 0.3s ease;
     }
 
     nav a:hover {
-      background-color: var(--text);
+      background-color: var(--accent);
       color: var(--bg);
     }
 
@@ -83,6 +101,8 @@
       max-width: 960px;
       margin: 60px auto;
       padding: 0 20px;
+      position: relative;
+      z-index: 1;
     }
 
     section {
@@ -90,6 +110,7 @@
       padding: 30px;
       background-color: var(--panel);
       border-left: 6px solid var(--blue);
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
     }
 
     h3 {
@@ -125,8 +146,8 @@
       text-align: center;
       padding: 40px 20px;
       font-size: 0.85rem;
-      color: #555;
-      border-top: 2px solid #ccc;
+      color: #888;
+      border-top: 2px solid #2a2a2a;
     }
 
     @media (max-width: 768px) {
@@ -141,6 +162,8 @@
   </style>
 </head>
 <body>
+
+  <div class="rainbow-glow"></div>
 
   <header>
     <h1><span style="font-size: 120%">L</span>iam <span style="font-size: 120%">W</span>ard</h1>
@@ -175,7 +198,7 @@
         <div>
           <h3>Contact</h3>
           <p>Email: <a href="mailto:liamward35@icloud.com">liamward35@icloud.com</a></p>
-          <p>LinkedIn: <a href="https://linkedin.com/in/liam-ward" target="_blank">linkedin.com/in/liamward</a></p>
+          <p>LinkedIn: <a href="https://linkedin.com/in/liam-ward" target="_blank">linkedin.com/in/liam-ward</a></p>
         </div>
         <div>
           <h3>Links</h3>
