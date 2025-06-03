@@ -132,6 +132,35 @@
       column-count: 1;
     }
   }
+
+    /* existing mobile breakpoints */
+    @media (max-width: 900px) {
+    .gallery {
+      column-count: 2;
+    }
+  }
+  @media (max-width: 600px) {
+    .gallery {
+      column-count: 1;
+    }
+  }
+
+  /* New extra padding for very small screens */
+  @media (max-width: 480px) {
+    .gallery {
+      padding-left: 12px;
+      padding-right: 12px;
+    }
+    .image-wrap {
+      max-width: calc(100% - 24px);
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .image-wrap:hover img {
+      transform: scale(1.05);
+    }
+  }
+
 </style>
 </head>
 <body>
